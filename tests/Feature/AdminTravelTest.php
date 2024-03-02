@@ -2,9 +2,8 @@
 
 use App\Models\Role;
 use App\Models\Travel;
-use Database\Seeders\RoleSeeder;
 use App\Models\User;
-
+use Database\Seeders\RoleSeeder;
 
 test('public user cannot access adding travel', function () {
     $response = $this->postJson('/api/v1/admin/travels');
@@ -28,9 +27,8 @@ test('save travel succefully with valid data', function () {
     $user = User::factory()->create();
     $user->roles()->attach(Role::where('name', 'admin')->value('id'));
 
-
     $response = $this->actingAs($user)->postJson('/api/v1/admin/travels', [
-        'name' => 'Travel name'
+        'name' => 'Travel name',
     ]);
     $response->assertStatus(422);
 
@@ -49,13 +47,12 @@ test('updates travel successfully with valid data', function () {
     $user->roles()->attach(Role::where('name', 'editor')->value('id'));
     $travel = Travel::factory()->create();
 
-
-    $response = $this->actingAs($user)->putJson('/api/v1/admin/travels/' . $travel->id, [
+    $response = $this->actingAs($user)->putJson('/api/v1/admin/travels/'.$travel->id, [
         'name' => 'Travel name updated',
     ]);
     $response->assertStatus(422);
 
-    $response = $this->actingAs($user)->putJson('/api/v1/admin/travels/' . $travel->id, [
+    $response = $this->actingAs($user)->putJson('/api/v1/admin/travels/'.$travel->id, [
         'name' => 'Travel name updated',
         'is_public' => 1,
         'description' => 'Some description',

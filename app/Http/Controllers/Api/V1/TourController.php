@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Api\V1;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TourListRequest;
 use App\Http\Resources\TourResource;
-use App\Models\Tour;
 use App\Models\Travel;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TourController extends Controller
@@ -32,6 +30,7 @@ class TourController extends Controller
             })
             ->orderBy('starting_date')
             ->paginate();
+
         return TourResource::collection($tours);
     }
 }

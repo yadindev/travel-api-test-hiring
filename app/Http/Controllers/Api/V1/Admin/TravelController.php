@@ -9,7 +9,6 @@ use App\Models\Travel;
 
 class TravelController extends Controller
 {
-
     public function store(TravelRequest $request): TravelResource
     {
 

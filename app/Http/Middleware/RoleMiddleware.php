@@ -16,12 +16,12 @@ class RoleMiddleware
     public function handle(Request $request, Closure $next, string $role): Response
     {
 
-        if (!auth()->check()) {
-            abort(401, "The user are unauthenticated");
+        if (! auth()->check()) {
+            abort(401, 'The user are unauthenticated');
         }
 
-        if (!auth()->user()->roles()->where('name', $role)->exists()) {
-            abort(403, "The user dont have permision");
+        if (! auth()->user()->roles()->where('name', $role)->exists()) {
+            abort(403, 'The user dont have permision');
         }
 
         return $next($request);
