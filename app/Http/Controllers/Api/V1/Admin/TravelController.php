@@ -10,10 +10,17 @@ use App\Models\Travel;
 class TravelController extends Controller
 {
 
-    public function store(TravelRequest $request)
+    public function store(TravelRequest $request): TravelResource
     {
 
         $travel = Travel::create($request->validated());
+
+        return new TravelResource($travel);
+    }
+
+    public function update(Travel $travel, TravelRequest $travelRequest): TravelResource
+    {
+        $travel->update($travelRequest->validated());
 
         return new TravelResource($travel);
     }
