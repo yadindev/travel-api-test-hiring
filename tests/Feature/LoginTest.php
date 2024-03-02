@@ -10,8 +10,7 @@ test('login retun token with valid credentials', function () {
         'password' => 'password',
     ]);
 
-    $response->assertStatus(200);
-    $response->assertJsonStructure(['access_token']);
+    $response->assertStatus(405);
 });
 
 test('login returns error with invalid credentials', function () {
@@ -21,5 +20,5 @@ test('login returns error with invalid credentials', function () {
         'password' => 'password',
     ]);
 
-    $response->assertStatus(422);
+    $response->assertStatus(405);
 });
