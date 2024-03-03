@@ -9,6 +9,10 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class TravelController extends Controller
 {
+    /**
+     * Get All public travels
+     * @unauthenticated
+     */
     public function index(): JsonResource
     {
         $travels = Travel::where('is_public', true)->paginate();

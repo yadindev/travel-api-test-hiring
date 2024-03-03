@@ -9,6 +9,10 @@ use App\Models\Travel;
 
 class TravelController extends Controller
 {
+    /**
+     * Save a travel
+     * 
+     */
     public function store(TravelRequest $request): TravelResource
     {
 
@@ -17,6 +21,10 @@ class TravelController extends Controller
         return new TravelResource($travel);
     }
 
+    /**
+     * Modify a travel
+     * 
+     */
     public function update(Travel $travel, TravelRequest $travelRequest): TravelResource
     {
         $travel->update($travelRequest->validated());
