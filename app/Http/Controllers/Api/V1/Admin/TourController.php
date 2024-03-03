@@ -11,7 +11,6 @@ class TourController extends Controller
 {
     /**
      * Save a travel for a tour
-     * 
      */
     public function store(Travel $travel, TourRequest $request): TourResource
     {

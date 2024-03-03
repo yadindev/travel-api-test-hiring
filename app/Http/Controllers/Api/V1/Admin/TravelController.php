@@ -11,7 +11,6 @@ class TravelController extends Controller
 {
     /**
      * Save a travel
-     * 
      */
     public function store(TravelRequest $request): TravelResource
     {
@@ -23,7 +22,6 @@ class TravelController extends Controller
 
     /**
      * Modify a travel
-     * 
      */
     public function update(Travel $travel, TravelRequest $travelRequest): TravelResource
     {

@@ -11,6 +11,7 @@ class TravelController extends Controller
 {
     /**
      * Get All public travels
+     *
      * @unauthenticated
      */
     public function index(): JsonResource

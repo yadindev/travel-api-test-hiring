@@ -10,10 +10,8 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class TourController extends Controller
 {
-
     /**
      * Get all tours per travel
-     * 
      */
     public function index(Travel $travel, TourListRequest $request): JsonResource
     {
