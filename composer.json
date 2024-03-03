@@ -7,6 +7,8 @@
     "require": {
         "php": "^8.1",
         "cviebrock/eloquent-sluggable": "^10.0",
+        "dedoc/scramble": "^0.8.5",
+        "doctrine/dbal": "^3.8",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",

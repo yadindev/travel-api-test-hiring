@@ -9,6 +9,10 @@ use App\Models\Travel;
 
 class TourController extends Controller
 {
+    /**
+     * Save a travel for a tour
+     * 
+     */
     public function store(Travel $travel, TourRequest $request): TourResource
     {
         $tour = $travel->tours()->create($request->validated());
